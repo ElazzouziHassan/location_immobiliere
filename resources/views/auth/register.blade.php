@@ -23,8 +23,8 @@
                     <form action="{{ route('register') }}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Elazzouzi Hassan" required>
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" name="username" class="form-control" id="username" placeholder="username" required>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>

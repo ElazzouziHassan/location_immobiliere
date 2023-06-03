@@ -28,5 +28,6 @@ Route::group(['middleware' => 'guest'], function () {
  
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [HomeController::class, 'index']);
+    Route::get('/dashboard',[AuthController::class,'dashboard']);
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 });

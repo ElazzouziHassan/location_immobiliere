@@ -13,14 +13,20 @@ class AuthController extends Controller
     {
         return view('auth.register');
     }
+
+    public function dashboard()
+    {
+        return view('dashboard.dashboard');
+    }
  
     public function registerUser(Request $request)
     {
         $user = new User();
  
-        $user->name = $request->name;
+        $user->username = $request->username;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
+        $user->role = 'user'; 
  
         $user->save();
  
@@ -40,7 +46,12 @@ class AuthController extends Controller
         ];
  
         if (Auth::attempt($credetials)) {
-            return redirect('/')->with('success', 'Login Success');
+            if(Auth::user()->role == 'admin'){
+                return redirect('/dashboard');
+            }else{
+                return redirect('/')->with('success', 'Login Success');
+            }
+            
         }
  
         return back()->with('error', 'Error Email or Password');
