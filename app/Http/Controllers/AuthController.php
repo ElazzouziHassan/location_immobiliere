@@ -18,21 +18,6 @@ class AuthController extends Controller
     {
         return view('dashboard.dashboard');
     }
-
-    public function clients()
-    {
-        return view('dashboard.clients');
-    }
-
-    public function locations()
-    {
-        return view('dashboard.locations');
-    }
-
-    public function ajouterclient()
-    {
-        return view('dashboard.ajouter-client');
-    }
  
     public function registerUser(Request $request)
     {

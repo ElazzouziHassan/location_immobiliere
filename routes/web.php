@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,8 +31,8 @@ Route::group(['middleware' => 'guest'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [HomeController::class, 'index']);
     Route::get('/dashboard',[AuthController::class,'dashboard']);
-    Route::get('/clients',[AuthController::class,'clients']);
-    Route::get('/locations',[AuthController::class,'locations']);
-    Route::get('/ajouterclient',[AuthController::class,'ajouterclient']);
+    Route::get('/clients',[ClientController::class,'clients']);
+    Route::get('/locations',[LocationController::class,'locations']);
+    Route::get('/ajouterclient',[ClientController::class,'ajouterclient']);
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 });
