@@ -1,6 +1,6 @@
 @extends('dashboard.layout')
 @section('content')
-<div class="dashboard">
-  <h1>dashbord</h1>
+<div class="ajouter-client">
+  Ajouter client
 </div>
 @stop

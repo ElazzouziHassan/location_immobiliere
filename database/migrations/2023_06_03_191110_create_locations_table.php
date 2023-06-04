@@ -11,8 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('immobiliere_id');
+            $table->unsignedBigInteger('client_id');
+            $table->dateTime('Date_debut');
+            $table->dateTime('Date_fin');
+            $table->foreign('immobiliere_id')->references('id')->on('immobilieres')->onDelete('cascade');
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->timestamps();
         });
     }
